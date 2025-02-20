@@ -1,0 +1,67 @@
+<! DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans&display=swap" rel="stylesheet">
+ <title>Update property</title>
+ <link rel="shortcut icon" type="image/png" href="Images/favicon.png">
+ <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+  <header>
+   <div class="container">
+   <div id="branding">
+    <h1>ZB-Properties</h1>
+	</div>
+	<div class="hamburger">
+   <span class="bar"></span>
+   <span class="bar"></span>
+   <span class="bar"></span>
+   </div>
+   <nav>
+   <ul class="nav-menu">
+	<li class="nav-item"><a href="index.html">Home</a></li>
+	<div class="dropdown">
+	<li class="nav-item" class="dropbtn"><a href="">Property listings</a>
+   </li>
+    <div class="dropdown-content">
+   <a href="search properties.html">Search for property</a>
+   <a href="Post-Property.html">Post-Property</a>
+   <a href="My property list.html">My property list</a>
+   <a href="index.html">logout</a>
+    </div>
+	</div>
+   
+   <li class="nav-item"><a href="Sign In.html">Sign In</a></li>
+   <li class="nav-item"><a href="Create an account.html">Create an account</a></li>
+	</ul>
+	</nav>
+
+</div>
+
+</header>
+
+
+ <div class="container">
+<div class="sp-update sp-hide" id="updateForm">
+ <form>
+  <div class="sp-form update-form">
+
+   <input class="input-3" type="text" id="title" required placeholder="enter new title">
+   <input class="input-3" type="text" id="description" required placeholder="enter new description">
+   <input class="input-3" type="number" id="price" required placeholder="enter new price">
+   <input class="input-3" type="text" id="type" required placeholder="enter new type">
+
+   <button class="sp-btn1"> Update</button>
+  </div>
+ </form>
+</div>
+
+ </div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "ZB Properties API",
+      "version": "1.0.0",
+      "description": "API for managing real estate properties"
+    },
+    "securityDefinitions": {
+      "bearerAuth": {
+        "type": "apiKey",
+        "scheme": "bearer",
+        "description": "You are required to pass the JWT token received upon signup and signin in the headers to access secured endpoint, required input format: \"Bearer \\<token\\>\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
+    "schemes": ["https", "http"],
+    "paths": {
+      "/api/users/signup": {
+        "post": {
+          "summary": "Sign up a new user",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "User created"
+            }
+          }
+        }
+      },
+      "/api/users/signin": {
+        "post": {
+          "summary": "Sign in an existing user",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "User signed in"
+            }
+          }
+        }
+      },
+      "/api/properties/all": {
+        "get": {
+          "summary": "Get all properties",
+          "responses": {
+            "200": {
+              "description": "List of properties"
+            }
+          }
+        }
+      },
+        "/api/properties/post": {
+        "post": {
+          "summary": "Create a new property",
+          "security": [
+            {
+              "BearerAuth": []
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    }, 
+                    "description": {
+                      "type": "string"
+                    },                 
+                    "price": {
+                      "type": "number"
+                    },
+                    "location": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Property created"
+            }
+          }
+        }
+      },
+      "/api/properties/{id}": {
+        "get": {
+          "summary": "Get a property by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Property details"
+            }
+          }
+        },
+        "put": {
+          "summary": "Update a property",
+          "security": [
+            {
+              "BearerAuth": []
+            }
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "type": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Property updated"
+            }
+          }
+        },
+        "/api/properties/delete/${id}": {
+          "summary": "Delete a property",
+          "security": [
+            {
+              "BearerAuth": []
+            }
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Property deleted"
+            }
+          }
+        }
+      },
+      "/api/properties/sold/{id}": {
+        "patch": {
+          "summary": "Mark a property as sold",
+          "security": [
+            {
+              "BearerAuth": []
+            }
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Property marked as sold"
+            }
+          }
+        }
+      },
+      "/api/properties/type/{type}": {
+        "get": {
+          "summary": "Get properties by type",
+          "parameters": [
+            {
+              "name": "type",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of properties"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "BearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    }
+  }

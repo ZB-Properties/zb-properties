@@ -1,0 +1,107 @@
+<! DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans&display=swap" rel="stylesheet">
+ <title>Post-Property</title>
+ <link rel="shortcut icon" type="image/png" href="Images/favicon.png">
+ <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+  <header>
+   <div class="container">
+   <div id="branding">
+    <h1>ZB-Properties</h1>
+	</div>
+	<div class="hamburger">
+   <span class="bar"></span>
+   <span class="bar"></span>
+   <span class="bar"></span>
+   </div>
+   <nav>
+	<ul class="nav-menu">
+	<li class="nav-item"><a href="index.html">Home</a></li>
+	<div class="dropdown">
+   <li class="nav-item" class="dropbtn"><a href="">Property listings</a>
+   </li>
+    <div class="dropdown-content">
+   <a href="Searched properties.html">Searched property</a>
+   <a href="Post-Property.html">Post-Property</a>
+   <a href="My property list.html">My property list</a>
+   <a href="index.html">logout</a>
+    </div>
+  </div>
+	<li class="nav-item"><a href="Sign In.html">Sign In</a></li>
+
+   <li class="nav-item"><a href="Create an account.html">Create an account</a></li>
+	</ul>
+	</nav>
+
+</div>
+
+</header>
+
+<section id="section-1">
+ <div class="container_1">
+
+ <form id="propertyForm">
+
+  <h1>Post New Property</h1>
+   <div class="box">
+    <p>Property name <span>*</span></p>
+	<input type="text" id="title" name="property_name" maxlength="50" required placeholder="enter property name" class="input">
+   </div>
+   <div class="box">
+      <p>Property description <span>*</span></p>
+     <input type="text" id="description" name="property_decription" maxlength="50" required placeholder="property description" class="input">
+     </div>
+   <div class="box">
+    <p>Property price <span>*</span></p>
+	<input type="number" id="price" name="price" maxlength="10" min="0" max="1000000000" required placeholder="enter property price" class="input">
+   </div>
+   <div class="box">
+    <p>Property location <span>*</span></p>
+	<input type="text" id="location" name="property_address" maxlength="100" required placeholder="enter property address" class="input">
+   </div>
+
+   <div class="box">
+      <p>Property type <span>*</span></p>
+     <select name="offer" class="input" id="type" required>
+      <option value="sale">Sale</option>
+      <option value="rent">Rent</option>
+      <option value="lease">Minileft</option>
+      <option value="lease">Apartment</option>
+	   <option value="1">1 bedroom</option>
+	   <option value="2">2 bedroom</option>
+	   <option value="3">3 bedroom</option>
+	   <option value="4">4 bedroom</option>
+	   <option value="5">5 bedroom</option>
+	</select>
+   </div>
+
+   <div class="box" id="bathrooms">
+    <p>Bathroom availability <span>*</span></p>
+	<select name="bedroom" class="input" required>
+	 <option value="1">1 bathroom</option>
+	 <option value="2">2 bathroom</option>
+	 <option value="3">3 bathroom</option>
+	 <option value="4">4 bathroom</option>
+	 <option value="5">5 bathroom</option>
+	</select>
+   </div>
+
+   <div class="box" id="uploadImage" >
+   <p>Property Image <span>*</span></p>
+   <input type="file" id="image" id="fileUploadBtn" name="image" class="input" accept="image/*" required>
+   <button type="submit" id="postBtn" class="submit-btn">post property</button>
+   </div>
+
+ </form>
+ </div>
+ </section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
